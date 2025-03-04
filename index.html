@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <title>To-Do</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="design-outer-container">
+            <nav>
+                <div class="nav-top">
+                    <div class="nav-heading">
+                        <h5>TO-DO-LIST</h5>
+                        <span><i class="fa-solid fa-bars"></i></span>
+                    </div>
+
+                    <div class="search">
+                        <span><i class="fa-solid fa-magnifying-glass"></i></span>
+                        <input type="search" name="search" id="search">
+                    </div>
+
+                    <ul aria-label="TASKS">
+                        <li> <span><i class="fa-solid fa-arrow-up-wide-short"></i>
+                                Upcoming</span> <span>5</span>
+                        </li>
+                        <li class="active"> <span><i class="fa-solid fa-forward-step"></i>
+                                Today</span> <span>5</span>
+                        </li>
+                        <li> <span><i class="fa-solid fa-clipboard-list"></i>
+                                Completed</span> <span>5</span>
+                        </li>
+
+                    </ul>
+
+                    <ul aria-label="LISTS">
+                        <li> <span> <i class="red-color-box"></i>Personal</span> <span>5</span> </li>
+                        <li> <span> <i class="green-color-box"></i> Work</span> <span>5</span> </li>
+                        <li> <span> <i class="yellow-color-box"></i> List 1</span> <span>5</span> </li>
+                        <li>
+                            <span><i class="fa-solid fa-plus"></i>
+                                Add New List</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-bottom">
+                    <ul>
+                        <!-- <li> <span> Settings</span></li> -->
+                        <li> <span> <i class="fa-solid fa-right-to-bracket"></i>
+                             Sign out</span>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="content-container">
+                <div class="content-heading">
+                    <h5>Today</h5>
+                    <span>5</span>
+                </div>
+                <div class="input">
+                    <input type="text" id="input" placeholder="Enter your task">
+                    <button id="add">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+
+                <ul class="list-container">
+                    <li class="checked">
+                        make video on JS 
+                        <span class="entend">></span> 
+                        <span class="completed">x</span> 
+                        <span class=""> <i>Calender</i> <i>List</i> <i>x</i> </span>
+                    </li>
+                    
+                    <li class="checked">
+                        work with blender
+                        <span class="entend">></span> 
+                        <span class="completed">x</span> 
+                        <span class=""> <i>Calender</i> <i>List</i> <i>x</i> </span>
+
+                    </li>
+                    <li class="">
+                        do a To-Do app 
+                        <span class="entend">></span> 
+                        <span class="completed">x</span> 
+                        <span class=""> <i>Calender</i> <i>List</i> <i>x</i> </span>
+
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <script src="./app.js"></script>
+</body>
+
+</html>
