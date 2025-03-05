@@ -1,5 +1,5 @@
 const listContainer = document.getElementsByClassName("list-container")[0]
-
+const completedListContainer = document.querySelector('.completed-list-container');
 
 document.getElementById('add').addEventListener('click', addTask);
 document.getElementById('input').addEventListener('keydown', function (event) {
@@ -54,6 +54,23 @@ function addTask() {
    
 }
 
+completedListContainer.addEventListener('click', (event) => {
+    if (event.target.classList.contains('completed')) {
+        let str = event.target.parentElement.textContent.trim()
+        str = str.slice(0, -1)
+        let guess = document.querySelectorAll('.list-container li span.task')
+        console.log(guess[0].textContent)
+        guess.forEach((i) => {
+            i.textContent == str
+            guess = i
+        })
+        console.log(guess)
+        event.target.parentElement.remove()
+        listContainer.removeChild(guess)
+        saveData()
+    }
+})
+
 listContainer.addEventListener('click', (event) => {
     if (event.target.classList.contains('task')) {
         event.target.classList.toggle('checked')
@@ -103,6 +120,10 @@ listContainer.addEventListener('click', (event) => {
     }
 })
 
+
+
+
+
 const taskList = document.querySelectorAll('nav ul li')
 taskList.forEach((item) => {
     item.addEventListener('click', function () {
@@ -133,6 +154,45 @@ const doc = parser.parseFromString(localStorage.getItem('data'), 'text/html');
 const allTaskLists = doc.querySelectorAll('li span.task')
 const completedTaskList = doc.querySelectorAll('li span.task.checked')
 const UncompletedTaskList = doc.querySelectorAll('li span.uncompleted')
+// const allTaskValues = []
+// const completedTaskValues = []
+// const unCompletedTaskValues = []
+
+const taskDict = {
+    // "allTaskLists": allTaskLists.map(task => task.value),
+    "completedTaskList": completedTaskList,
+    "UncompletedTaskList": UncompletedTaskList,
+}
+
+  document.querySelector('.all-list-container').innerHTML = ""
+  completedListContainer.innerHTML =""
+
+for(let i = 0; i < allTaskLists.length; i++) {
+    const span = document.createElement('span')
+    span.className = "task"
+    const listLi = document.createElement('li')
+    span.innerHTML = allTaskLists[i].textContent
+    listLi.appendChild(span)
+    document.querySelector('.all-list-container').appendChild(listLi)
+    // allTaskValues.push(allTaskLists[i].textContent)
+}
+
+for(let i = 0; i < completedTaskList.length; i++) {
+    
+    const span = document.createElement('span')
+    span.className = "task"
+    const span2 = document.createElement('span')
+    span2.className="completed"
+    span2.innerHTML = 'x'
+    const listLi = document.createElement('li')
+    span.innerHTML = completedTaskList[i].textContent
+    listLi.appendChild(span)
+    listLi.appendChild(span2)
+    completedListContainer.appendChild(listLi)
+    // completedTaskValues.push(allTaskLists[i].textContent)
+
+  
+}
 
  document.querySelectorAll('.noOfUncompletedTodo').forEach((i) => {
     i.innerHTML = UncompletedTaskList.length
@@ -146,7 +206,7 @@ const UncompletedTaskList = doc.querySelectorAll('li span.uncompleted')
     i.innerHTML = completedTaskList.length
  })
 
- document.querySelector('.all-list-container').innerHTML = localStorage.getItem('data')
+//  document.querySelector('.all-list-container').innerHTML = localStorage.getItem('data')
 //  get values for completed list
 }
 
