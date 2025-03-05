@@ -25,7 +25,7 @@
               <span><i class="fa-solid fa-bars"></i></span>
             </div>
 
-            <div class="search">
+            <!-- <div class="search">
               <span><i class="fa-solid fa-magnifying-glass"></i></span>
               <input
                 type="search"
@@ -34,7 +34,7 @@
                 pattern="{}"
                 title="character not more than 209 characters"
               />
-            </div>
+            </div> -->
 
             <ul aria-label="TASKS">
               <li class="active">
@@ -53,7 +53,7 @@
               </li>
               <li>
                 <span>
-                    <i class="fa-solid fa-clipboard-list"></i>
+                  <i class="fa-solid fa-clipboard-list"></i>
                   <a href="#completed-list"> Completed </a>
                 </span>
                 <span class="noOfcompletedTodo"></span>
@@ -82,26 +82,26 @@
           </div>
         </nav>
         <div class="content">
-            <div class="content-container" id="to-do">
-                <div class="content-heading">
-                  <h5>Today</h5>
-                  <span class="noOfUncompletedTodo"></span>
-                </div>
-                <div class="input">
-                  <input
-                    type="text"
-                    id="input"
-                    maxlength="30"
-                    placeholder="Enter your task"
-                    pattern="^\w+([\w ]*\w)*$"
-                  />
-                  <button id="add">
-                    <i class="fa-solid fa-plus"></i>
-                  </button>
-                </div>
-      
-                <ul class="list-container">
-                  <!-- <li class="checked">
+          <div class="content-container" id="to-do">
+            <div class="content-heading">
+              <h5>Today</h5>
+              <span class="noOfUncompletedTodo"></span>
+            </div>
+            <div class="input">
+              <input
+                type="text"
+                id="input"
+                maxlength="30"
+                placeholder="Enter your task"
+                pattern="^\w+([\w ]*\w)*$"
+              />
+              <button id="add">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </div>
+
+            <ul class="list-container">
+              <!-- <li class="checked">
                                <span> 
                                   make video on JS
                               </span>
@@ -133,52 +133,45 @@
                               <span class="edit-button"> <i>Edit</i></span>
       
                           </li> -->
-                </ul>
-      
-              </div>
+            </ul>
+          </div>
 
-            <div class="content-container" id="all-list">
-                <div class="content-heading">
-                    <h5>All List</h5>
-                    <span class="noOfAllTodo"></span>
-                  </div>
-                  <div class="search">
-                    <span><i class="fa-solid fa-magnifying-glass"></i></span>
-                    <input
-                      type="search"
-                      id="search"
-                      maxlength="30"
-                      placeholder="Search for task"
-                      pattern="^\w+([\w ]*\w)*$"
-                    />
-                  </div>
-                  <ul class="all-list-container">     
-                  </ul>
+          <div class="content-container" id="completed-list">
+            <div class="content-heading">
+              <h5>Completed List</h5>
+              <span class="noOfcompletedTodo"></span>
             </div>
+            <div class="search">
+              <span><i class="fa-solid fa-magnifying-glass"></i></span>
+              <input
+                type="search"
+                id="search"
+                maxlength="30"
+                placeholder="Search for task"
+                pattern="^\w+([\w ]*\w)*$"
+              />
+            </div>
+            <ul class="completed-list-container"></ul>
+          </div>
 
-            <div class="content-container" id="completed-list">
-                <div class="content-heading">
-                    <h5>Completed List</h5>
-                    <span class="noOfcompletedTodo"></span>
-                  </div>
-                  <div class="search">
-                    <span><i class="fa-solid fa-magnifying-glass"></i></span>
-                    <input
-                      type="search"
-                      id="search"
-                      maxlength="30"
-                      placeholder="Search for task"
-                      pattern="^\w+([\w ]*\w)*$"
-                    />
-                  </div>
-                  <ul class="completed-list-container">     
-                  </ul>
+          <div class="content-container" id="all-list">
+            <div class="content-heading">
+              <h5>All List</h5>
+              <span class="noOfAllTodo"></span>
             </div>
+            <div class="search">
+              <span><i class="fa-solid fa-magnifying-glass"></i></span>
+              <input
+                type="search"
+                id="search"
+                maxlength="30"
+                placeholder="Search for task"
+                pattern="^\w+([\w ]*\w)*$"
+              />
+            </div>
+            <ul class="all-list-container"></ul>
+          </div>
         </div>
-        
-        
-           
-        
       </div>
     </div>
     <script src="./app.js"></script>

@@ -1,5 +1,6 @@
 const listContainer = document.getElementsByClassName("list-container")[0]
 
+
 document.getElementById('add').addEventListener('click', addTask);
 document.getElementById('input').addEventListener('keydown', function (event) {
     event.key === 'Enter' ? addTask() : null;
@@ -8,8 +9,7 @@ document.getElementById('input').addEventListener('keydown', function (event) {
 function addTask() {
     let task = document.getElementById('input');
     if (task.value) {
-
-        // const listContainer = document.getElementsByClassName("list-container")[0]
+        // add - avoid multiple same task
         const listItem = document.createElement('li')
     
         const span = document.createElement('span')
@@ -125,6 +125,8 @@ function showTask () {
     }
 }
 
+
+
 function countTask () {
 const parser = new DOMParser();
 const doc = parser.parseFromString(localStorage.getItem('data'), 'text/html');
@@ -143,7 +145,28 @@ const UncompletedTaskList = doc.querySelectorAll('li span.uncompleted')
  document.querySelectorAll('.noOfcompletedTodo').forEach( (i) => {
     i.innerHTML = completedTaskList.length
  })
+
+ document.querySelector('.all-list-container').innerHTML = localStorage.getItem('data')
+//  get values for completed list
 }
- console.log()
+
+
+const searchInput = document.getElementById('search')
+searchInput.addEventListener('keydown', (event) => {
+    event.key === 'Enter' ? search() : null
+})
+document.querySelector('.search>span').addEventListener('click', search)
+
+
+function search () {
+    if (searchInput.value) {
+        // filter task value
+    }
+    else {
+        alert('Enter a search value')
+    }
+}
+
+
 showTask()
 countTask()

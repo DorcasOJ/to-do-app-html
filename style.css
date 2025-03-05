@@ -281,7 +281,7 @@ nav li span i.yellow-color-box {
     padding: 0;
 }
 
-.list-container li {
+.list-container li, .all-list-container li, .completed-list-container li {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -292,7 +292,7 @@ nav li span i.yellow-color-box {
     position: relative;
 }
 
-.list-container li:hover {
+.list-container li:hover, .all-list-container li:hover, .completed-list-container li:hover {
     opacity: .9;
 }
 
@@ -318,11 +318,15 @@ nav li span i.yellow-color-box {
 
 }
 
-.list-container li span:nth-child(1).checked ~ span.edit-button {
+.list-container li span:nth-child(1).checked ~ .list-container li span.edit-button {
     display: none;
 }
 
-.list-container li span:nth-child(1) {
+.all-list-container li span.edit-button {
+    display: none;
+}
+
+.list-container li span:nth-child(1), .all-list-container li span:nth-child(1), .completed-list-container li span:nth-child(1) {
     font-size: 18px;
     cursor: pointer;
     width: 70%;
@@ -331,7 +335,7 @@ nav li span i.yellow-color-box {
 
 }
 
-.list-container li span.completed {
+.list-container li span.completed,  .completed-list-container li span.completed {
     font-size: 14px;
     position: absolute;
     right: 0;
@@ -340,14 +344,15 @@ nav li span i.yellow-color-box {
     cursor: pointer;
   display: flex;
   align-items: center;
+  background-color: #540505;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  text-transform: uppercase;
+  color: #fff;
 }
 
-.list-container li span.completed{
-    background-color: #540505;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    text-transform: uppercase;
-    color: #fff;
+.all-list-container li span.completed, .all-list-container li span.edit-span {
+    display: none;
 }
 
 .list-container li span.edit-span {
@@ -373,13 +378,12 @@ nav li span i.yellow-color-box {
     color: #000;
 }
 
-.list-container li span.edit {
+.list-container li span.edit, .all-list-container li span.edit {
     display: none;
     background: #f4f4f4;
     width: 60%;
     border-radius: 5px;
     align-items: center;
-    /* justify-content: space-between; */
     font-size: 14px;
     height: 25px;
     margin: 10px 0 15px 22px;
