@@ -24,15 +24,17 @@
 
                     <div class="search">
                         <span><i class="fa-solid fa-magnifying-glass"></i></span>
-                        <input type="search" name="search" id="search">
+                        <input type="search" name="search" id="search" pattern="{}"
+                        title="character not more than 209 characters"
+                        >
                     </div>
 
                     <ul aria-label="TASKS">
                         <li> <span><i class="fa-solid fa-arrow-up-wide-short"></i>
-                                Upcoming</span> <span>5</span>
+                                All List</span> <span>5</span>
                         </li>
                         <li class="active"> <span><i class="fa-solid fa-forward-step"></i>
-                                Today</span> <span>5</span>
+                                To-do</span> <span>5</span>
                         </li>
                         <li> <span><i class="fa-solid fa-clipboard-list"></i>
                                 Completed</span> <span>5</span>
@@ -40,7 +42,7 @@
 
                     </ul>
 
-                    <ul aria-label="LISTS">
+                    <!-- <ul aria-label="LISTS">
                         <li> <span> <i class="red-color-box"></i>Personal</span> <span>5</span> </li>
                         <li> <span> <i class="green-color-box"></i> Work</span> <span>5</span> </li>
                         <li> <span> <i class="yellow-color-box"></i> List 1</span> <span>5</span> </li>
@@ -48,7 +50,7 @@
                             <span><i class="fa-solid fa-plus"></i>
                                 Add New List</span>
                         </li>
-                    </ul>
+                    </ul> -->
                 </div>
                 <div class="nav-bottom">
                     <ul>
@@ -65,34 +67,48 @@
                     <span>5</span>
                 </div>
                 <div class="input">
-                    <input type="text" id="input" placeholder="Enter your task">
+                    <input type="text" id="input" maxlength="30" 
+                    placeholder="Enter your task"
+                    pattern="^\w+([\w ]*\w)*$"
+                    >
                     <button id="add">
                         <i class="fa-solid fa-plus"></i>
                     </button>
                 </div>
 
                 <ul class="list-container">
-                    <li class="checked">
-                        make video on JS 
-                        <span class="entend">></span> 
+                    <!-- <li class="checked">
+                         <span> 
+                            make video on JS
+                        </span>
+                        <span class="edit">
+                            <input type="text" class="text">
+                            <button class="save">save</button>
+                        </span>
                         <span class="completed">x</span> 
-                        <span class=""> <i>Calender</i> <i>List</i> <i>x</i> </span>
+                        <span class="edit-button"> <i>Edit</i></span>
                     </li>
                     
-                    <li class="checked">
-                        work with blender
-                        <span class="entend">></span> 
+                    <li class="">
+                        <span class="checked"> work with blender </span>
+                        <span class="edit">
+                            <input type="text" class="text">
+                            <button class="save">save</button>
+                        </span>
                         <span class="completed">x</span> 
-                        <span class=""> <i>Calender</i> <i>List</i> <i>x</i> </span>
+                        <span class="edit-button"> <i>Edit</i></span>
 
                     </li>
                     <li class="">
-                        do a To-Do app 
-                        <span class="entend">></span> 
+                        <span> do a To-Do app </span>
+                        <span class="edit">
+                            <input type="text" class="text">
+                            <button class="save">save</button>
+                        </span>
                         <span class="completed">x</span> 
-                        <span class=""> <i>Calender</i> <i>List</i> <i>x</i> </span>
+                        <span class="edit-button"> <i>Edit</i></span>
 
-                    </li>
+                    </li> -->
                 </ul>
 
             </div>
