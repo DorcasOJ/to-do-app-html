@@ -17,7 +17,7 @@ html, body {
     /* background-color: #c9c5c5; */
     color: #fff;
     background: linear-gradient(to right, #48496c, #5640e4);
-    height: 100vh;
+    height: 100%;
     
 
 }
@@ -38,17 +38,14 @@ html, body {
     border-radius: 10px;
     padding: 20px;
     margin: 20px;
-    height: 95vh;
     width: 95vw;
-    /* -webkit-box-shadow: 10px 10px 5px 0px rgba(207,208,214,1);
-    -moz-box-shadow: 10px 10px 5px 0px rgba(207,208,214,1);
-    box-shadow: 10px 10px 5px 0px rgba(207, 208, 214, 0.536); */
 }
 
 nav {
+ 
     width: 28%;
+    height: 100vh;
     max-width: 200px;
-    height: 100%;
     box-shadow: 1px 1px 1px #444672b5;
     border-radius: 10px;
     display: flex;
@@ -70,6 +67,10 @@ nav ul::before {
     font-weight: bold;
 
 }
+nav ul a {
+    text-decoration: none;
+    color: #fff;
+}
 
 nav ul li {
     display: flex;
@@ -80,10 +81,13 @@ nav ul li {
     cursor: pointer;
     font-size: 15px;
 }
-nav ul li:hover, nav ul li.active {
+nav ul li:hover {
+    opacity: .5;
+}
+
+nav ul li.active {
     background-color: #b8b6b6c4;
     border-radius: 5px;
-    /* opacity: .5; */
 }
 
 nav ul li i {
@@ -117,6 +121,51 @@ h5 {
     padding-right: 5px;
     margin-bottom: 10px;
 }
+
+.content-container .search {
+   
+ display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f4f4f4;
+    padding: 14px 14px;
+    height: 35px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    max-width: 400px;
+}
+
+.content-container .search i {
+    font-size: 11px;
+    width: 15px;
+    color: gray;
+}
+
+.content-container .search input {
+
+    border: none;
+    outline: none;
+    width: 90%;
+    height: 25px;
+    padding:  5px;
+    font-size: 14px;
+    text-align: center;
+    background-color: transparent;
+}
+
+.content-container .search span{
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    cursor: pointer;
+    /* height: 30px; */
+    width: 10%;
+ }
+ 
+ .content-container .search span:hover {
+     background-color: #b8b6b6c4;
+     border-radius: 5px;
+ }
  
 nav .search  {
     display: flex;
@@ -132,6 +181,7 @@ nav .search  {
 nav .search i {
     font-size: 11px;
     width: 15px;
+    color: #fff;
 }
 
 nav .search input {
@@ -181,9 +231,12 @@ nav li span i.yellow-color-box {
     margin-bottom: 20px;
 }
 
-.content-container {
+.content {
     width: 75%;
     padding: 0 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
 }
 
 .content-container .input {
@@ -194,6 +247,7 @@ nav li span i.yellow-color-box {
     padding: 5px;
     border-radius: 8px;
     margin-bottom: 30px;
+    max-width: 400px;
 }
 
 .content-container .input input {
@@ -251,7 +305,7 @@ nav li span i.yellow-color-box {
     background-color: #f4f4f4;
     position: absolute;
     /* margin-right: 15px ; */
-    top: 5px;
+    top: 6px;
     left: 5px;
     cursor: pointer;
 }
@@ -289,14 +343,14 @@ nav li span i.yellow-color-box {
 }
 
 .list-container li span.completed{
-    background-color: #8f1414;
+    background-color: #540505;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     text-transform: uppercase;
     color: #fff;
 }
 
-.list-container li span.edit-button {
+.list-container li span.edit-span {
     margin-top: 10px;
     font-size: 13px;
     display: flex;
@@ -307,12 +361,13 @@ nav li span i.yellow-color-box {
     /* box-shadow: 0px 0px 0px 1px grey; */
 }
 
-.list-container li span.edit-button i {
-    padding: 2px 8px;
+.list-container li span.edit-span i.edit-button {
+    padding: 3px 8px;
     cursor: pointer;
+    font-size: 10px;
 }
 
-.list-container li span.edit-button i:hover {
+.list-container li span.edit-span i.edit-button:hover {
     background-color: #ccc;
     cursor: pointer;
     color: #000;
@@ -355,7 +410,7 @@ nav li span i.yellow-color-box {
     nav {
         display: none;
     }
-    .content-container {
+    .content {
         width: 100%;
     }
 }

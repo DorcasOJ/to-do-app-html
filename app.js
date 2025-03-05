@@ -1,61 +1,4 @@
-
-
-
-// document.getElementById('add').addEventListener('click', addTask);
-// document.getElementById('input').addEventListener('keydown', function (event) {
-//     event.key === 'Enter' ? addTask() : null;
-// } );
-
-// function addTask() {
-//     let task = document.getElementById('input');
-//     if (task.value) {
-//         const listContainer = document.getElementsByClassName("list-container")[0]
-//         const listItem = document.createElement('li')
-//         listItem.innerHTML = task.value
-
-//         const span = document.createElement('span')
-//         span.className = 'extend'
-//         span.innerHTML = '>'
-        
-//          const span2 = document.createElement('span')
-//         span2.className="completed"
-//         span2.innerHTML = 'x'
-       
-//         const span3 = document.createElement('span')
-//         // span3.className = '
-//         const italic = document.createElement('i')
-//         italic.innerHTML = 'Calender'
-//         const italic2 = document.createElement('i')
-//         italic.innerHTML = 'List'
-//         const italic3 = document.createElement('i')
-//         italic.innerHTML = 'x'
-//         span3.appendChild(italic)
-//         span3.appendChild(italic2)
-//         span3.appendChild(italic3)
-
-//         listItem.addEventListener('click', () => listItem.classList.toggle('checked'))
-
-//         span2.addEventListener('click', () => {
-//             listContainer.removeChild(listItem)
-//         })
-//         // span.addEventListener('click', () => {
-//         //     span3.classList.toggle('extended')
-//         // })
-//         listItem.appendChild(span)
-//         listItem.appendChild(span2)
-//         listItem.appendChild(span3)
-        
-//         listContainer.appendChild(listItem)
-//     } else if (task.value === "") {
-//         alert('Please enter a task');
-//     }
-//     const items = document.querySelectorAll('.list-container>li')
-//     task.value = "" 
-//     console.log(items)
-// }
-// document.querySelectorAll('.list-container>li').forEach(item => {
-//     item.addEventListener('click', () => item.classList.toggle('checked'))
-// })
+const listContainer = document.getElementsByClassName("list-container")[0]
 
 document.getElementById('add').addEventListener('click', addTask);
 document.getElementById('input').addEventListener('keydown', function (event) {
@@ -65,10 +8,12 @@ document.getElementById('input').addEventListener('keydown', function (event) {
 function addTask() {
     let task = document.getElementById('input');
     if (task.value) {
-        const listContainer = document.getElementsByClassName("list-container")[0]
+
+        // const listContainer = document.getElementsByClassName("list-container")[0]
         const listItem = document.createElement('li')
     
         const span = document.createElement('span')
+        span.classList.add('task', 'uncompleted')
         span.innerHTML = task.value
 
         const span1 = document.createElement('span')
@@ -85,9 +30,10 @@ function addTask() {
         span2.innerHTML = 'x'
        
         const span3 = document.createElement('span')
-        span3.className = 'edit-button'
+        span3.className = 'edit-span'
         const italic = document.createElement('i')
-        italic.innerHTML = 'edit'
+        italic.className = 'fa-solid fa-pen-to-square edit-button'
+        italic.innerHTML = ' edit'
         span3.appendChild(italic)
 
         listItem.appendChild(span)
@@ -96,40 +42,9 @@ function addTask() {
         listItem.appendChild(span3)
         listContainer.appendChild(listItem)
 
-        span.addEventListener('click', () => {
-            span.classList.toggle('checked'); 
-            saveData()
-        })
-
-        span2.addEventListener('click', () => {
-            listContainer.removeChild(listItem)
-            saveData()
-        })
-        span3.addEventListener('click', () => {
-          
-            
-            let editInput = document.querySelector('.edit')
-            editInput.style.display = "flex"
-            editInput.querySelector('input').value = span.innerHTML
-            span.innerHTML = 'editing...'
-                span3.style.display = "none"
-            editInput.querySelector('input').addEventListener('keydown', function (event) {
-                if (event.key === "Enter") {
-                    span.innerHTML = editInput.querySelector('input').value
-                    editInput.style.display = "none"
-                    span3.style.display = "flex"
-                }
-                saveData()
-            })
-            editInput.querySelector('button').addEventListener('click', function () {
-                if (editInput.querySelector('input').value) {
-                    span.innerHTML = editInput.querySelector('input').value
-                    editInput.style.display = "none"
-                    span3.style.display = "flex"
-                }
-                saveData()
-            })
-        })
+        // listContainer.addEventListener('click', () => {
+        //         listContainer.classList.toggle('checked')
+        // })
         task.value = ""
         saveData()
        
@@ -139,16 +54,96 @@ function addTask() {
    
 }
 
+listContainer.addEventListener('click', (event) => {
+    if (event.target.classList.contains('task')) {
+        event.target.classList.toggle('checked')
+        if (event.target.classList.contains('checked')) {
+            event.target.classList.remove('uncompleted')
+        } else {
+        event.target.classList.add('uncompleted')
+
+        }
+        saveData()
+    }
+   else if (event.target.classList.contains('completed')) {
+        event.target.parentElement.remove()
+        saveData()
+    }
+
+    else if (event.target.classList.contains('edit-button')) {
+        const query = event.target.parentElement.parentElement
+        const editInput = query.querySelector('.edit')
+        editInput.style.display = "flex"
+        editInput.querySelector('input').value = event.target.parentElement.parentElement.querySelector('.task').innerHTML    
+        query.querySelector('.task').innerHTML = 'editing...'
+        event.target.parentElement.style.display = "none"
+        editInput.querySelector('input').addEventListener('keydown', function (event) {
+            if (event.key === "Enter") {
+                if ( editInput.querySelector('input').value.length > 1 ) {
+                query.querySelector('.task').innerHTML = editInput.querySelector('input').value
+                editInput.style.display = "none"
+                event.target.parentElement.parentElement.querySelector('.edit-span').style.display = "flex"
+                saveData()
+                console.log(editInput, )
+                } else {
+                    alert('Please enter a valid task, minimum of 2 characters')
+                }
+            }
+        })
+        editInput.querySelector('button').addEventListener('click', function (event) {        
+            if ( editInput.querySelector('input').value.length > 1 ) {
+                query.querySelector('.task').innerHTML = editInput.querySelector('input').value
+                editInput.style.display = "none"
+                event.target.parentElement.style.display = "flex"
+                saveData()
+            } else {
+                alert('Please enter a valid task, minimum of 2 characters')
+            } 
+        })
+    }
+})
+
+const taskList = document.querySelectorAll('nav ul li')
+taskList.forEach((item) => {
+    item.addEventListener('click', function () {
+        taskList.forEach(i => i.classList.remove('active'))
+        this.classList.toggle('active')
+
+    })
+})
+
 function saveData () {
     // localStorage.setItem('data', JSON.stringify(document.getElementsByClassName('list-container')[0].innerHTML))
     localStorage.setItem('data', document.getElementsByClassName('list-container')[0].innerHTML)
-    console.log(localStorage.getItem('tasks'))
-}
+    countTask()
+   }
+
 
 function showTask () {
     if (localStorage.getItem('data')) {
-        document.getElementsByClassName('list-container')[0].innerHTML = localStorage.getItem('data')
+        listContainer.innerHTML = localStorage.getItem('data')
     }
 }
 
+function countTask () {
+const parser = new DOMParser();
+const doc = parser.parseFromString(localStorage.getItem('data'), 'text/html');
+const allTaskLists = doc.querySelectorAll('li span.task')
+const completedTaskList = doc.querySelectorAll('li span.task.checked')
+const UncompletedTaskList = doc.querySelectorAll('li span.uncompleted')
+
+ document.querySelectorAll('.noOfUncompletedTodo').forEach((i) => {
+    i.innerHTML = UncompletedTaskList.length
+ })
+
+ document.querySelectorAll('.noOfAllTodo').forEach( (i) => {
+    i.innerHTML = allTaskLists.length
+ })
+
+ document.querySelectorAll('.noOfcompletedTodo').forEach( (i) => {
+    i.innerHTML = completedTaskList.length
+ })
+}
+ console.log()
 showTask()
+countTask()

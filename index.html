@@ -1,48 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
     <title>To-Do</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <div class="design-outer-container">
-            <nav>
-                <div class="nav-top">
-                    <div class="nav-heading">
-                        <h5>TO-DO-LIST</h5>
-                        <span><i class="fa-solid fa-bars"></i></span>
-                    </div>
+      <div class="design-outer-container">
+        <nav>
+          <div class="nav-top">
+            <div class="nav-heading">
+              <h5>TO-DO-LIST</h5>
+              <span><i class="fa-solid fa-bars"></i></span>
+            </div>
 
-                    <div class="search">
-                        <span><i class="fa-solid fa-magnifying-glass"></i></span>
-                        <input type="search" name="search" id="search" pattern="{}"
-                        title="character not more than 209 characters"
-                        >
-                    </div>
+            <div class="search">
+              <span><i class="fa-solid fa-magnifying-glass"></i></span>
+              <input
+                type="search"
+                name="search"
+                id="search"
+                pattern="{}"
+                title="character not more than 209 characters"
+              />
+            </div>
 
-                    <ul aria-label="TASKS">
-                        <li> <span><i class="fa-solid fa-arrow-up-wide-short"></i>
-                                All List</span> <span>5</span>
-                        </li>
-                        <li class="active"> <span><i class="fa-solid fa-forward-step"></i>
-                                To-do</span> <span>5</span>
-                        </li>
-                        <li> <span><i class="fa-solid fa-clipboard-list"></i>
-                                Completed</span> <span>5</span>
-                        </li>
+            <ul aria-label="TASKS">
+              <li class="active">
+                <span
+                  ><i class="fa-solid fa-arrow-up-wide-short"></i>
+                  <a href="#to-do"> To-do </a>
+                </span>
+                <span class="noOfUncompletedTodo"></span>
+              </li>
+              <li>
+                <span>
+                  <i class="fa-solid fa-forward-step"></i>
+                  <a href="#all-list"> All List </a>
+                </span>
+                <span class="noOfAllTodo"></span>
+              </li>
+              <li>
+                <span>
+                    <i class="fa-solid fa-clipboard-list"></i>
+                  <a href="#completed-list"> Completed </a>
+                </span>
+                <span class="noOfcompletedTodo"></span>
+              </li>
+            </ul>
 
-                    </ul>
-
-                    <!-- <ul aria-label="LISTS">
+            <!-- <ul aria-label="LISTS">
                         <li> <span> <i class="red-color-box"></i>Personal</span> <span>5</span> </li>
                         <li> <span> <i class="green-color-box"></i> Work</span> <span>5</span> </li>
                         <li> <span> <i class="yellow-color-box"></i> List 1</span> <span>5</span> </li>
@@ -51,70 +69,118 @@
                                 Add New List</span>
                         </li>
                     </ul> -->
-                </div>
-                <div class="nav-bottom">
-                    <ul>
-                        <!-- <li> <span> Settings</span></li> -->
-                        <li> <span> <i class="fa-solid fa-right-to-bracket"></i>
-                             Sign out</span>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-            <div class="content-container">
+          </div>
+          <div class="nav-bottom">
+            <ul>
+              <!-- <li> <span> Settings</span></li> -->
+              <li>
+                <span>
+                  <i class="fa-solid fa-right-to-bracket"></i> Sign out</span
+                >
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <div class="content">
+            <div class="content-container" id="to-do">
                 <div class="content-heading">
-                    <h5>Today</h5>
-                    <span>5</span>
+                  <h5>Today</h5>
+                  <span class="noOfUncompletedTodo"></span>
                 </div>
                 <div class="input">
-                    <input type="text" id="input" maxlength="30" 
+                  <input
+                    type="text"
+                    id="input"
+                    maxlength="30"
                     placeholder="Enter your task"
                     pattern="^\w+([\w ]*\w)*$"
-                    >
-                    <button id="add">
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
+                  />
+                  <button id="add">
+                    <i class="fa-solid fa-plus"></i>
+                  </button>
                 </div>
-
+      
                 <ul class="list-container">
-                    <!-- <li class="checked">
-                         <span> 
-                            make video on JS
-                        </span>
-                        <span class="edit">
-                            <input type="text" class="text">
-                            <button class="save">save</button>
-                        </span>
-                        <span class="completed">x</span> 
-                        <span class="edit-button"> <i>Edit</i></span>
-                    </li>
-                    
-                    <li class="">
-                        <span class="checked"> work with blender </span>
-                        <span class="edit">
-                            <input type="text" class="text">
-                            <button class="save">save</button>
-                        </span>
-                        <span class="completed">x</span> 
-                        <span class="edit-button"> <i>Edit</i></span>
-
-                    </li>
-                    <li class="">
-                        <span> do a To-Do app </span>
-                        <span class="edit">
-                            <input type="text" class="text">
-                            <button class="save">save</button>
-                        </span>
-                        <span class="completed">x</span> 
-                        <span class="edit-button"> <i>Edit</i></span>
-
-                    </li> -->
+                  <!-- <li class="checked">
+                               <span> 
+                                  make video on JS
+                              </span>
+                              <span class="edit">
+                                  <input type="text" class="text">
+                                  <button class="save">save</button>
+                              </span>
+                              <span class="completed">x</span> 
+                              <span class="edit-button"> <i>Edit</i></span>
+                          </li>
+                          
+                          <li class="">
+                              <span class="checked"> work with blender </span>
+                              <span class="edit">
+                                  <input type="text" class="text">
+                                  <button class="save">save</button>
+                              </span>
+                              <span class="completed">x</span> 
+                              <span class="edit-button"> <i>Edit</i></span>
+      
+                          </li>
+                          <li class="">
+                              <span> do a To-Do app </span>
+                              <span class="edit">
+                                  <input type="text" class="text">
+                                  <button class="save">save</button>
+                              </span>
+                              <span class="completed">x</span> 
+                              <span class="edit-button"> <i>Edit</i></span>
+      
+                          </li> -->
                 </ul>
+      
+              </div>
 
+            <div class="content-container" id="all-list">
+                <div class="content-heading">
+                    <h5>All List</h5>
+                    <span class="noOfAllTodo"></span>
+                  </div>
+                  <div class="search">
+                    <span><i class="fa-solid fa-magnifying-glass"></i></span>
+                    <input
+                      type="search"
+                      id="search"
+                      maxlength="30"
+                      placeholder="Search for task"
+                      pattern="^\w+([\w ]*\w)*$"
+                    />
+                  </div>
+                  <ul class="all-list-container">     
+                  </ul>
+            </div>
+
+            <div class="content-container" id="completed-list">
+                <div class="content-heading">
+                    <h5>Completed List</h5>
+                    <span class="noOfcompletedTodo"></span>
+                  </div>
+                  <div class="search">
+                    <span><i class="fa-solid fa-magnifying-glass"></i></span>
+                    <input
+                      type="search"
+                      id="search"
+                      maxlength="30"
+                      placeholder="Search for task"
+                      pattern="^\w+([\w ]*\w)*$"
+                    />
+                  </div>
+                  <ul class="completed-list-container">     
+                  </ul>
             </div>
         </div>
+        
+        
+           
+        
+      </div>
     </div>
     <script src="./app.js"></script>
-</body>
-
+  </body>
 </html>
