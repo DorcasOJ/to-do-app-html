@@ -42,8 +42,10 @@ html, body {
 }
 
 nav {
- 
-    width: 28%;
+
+    position: sticky;
+    top: 5px;
+    max-width: 220px;
     height: 100vh;
     max-width: 200px;
     box-shadow: 1px 1px 1px #444672b5;
@@ -157,7 +159,7 @@ h5 {
     display: flex;
     justify-content: center;
     padding: 5px;
-    cursor: pointer;
+    /* cursor: pointer; */
     /* height: 30px; */
     width: 10%;
  }
@@ -410,7 +412,7 @@ nav li span i.yellow-color-box {
 
 
 
-@media screen and (min-width: 400px) and (max-width: 600px)  {
+@media screen and (min-width: 300px) and (max-width: 650px)  {
     nav {
         display: none;
     }

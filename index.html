@@ -18,11 +18,12 @@
   <body>
     <div class="container">
       <div class="design-outer-container">
+       
         <nav>
           <div class="nav-top">
             <div class="nav-heading">
               <h5>TO-DO-LIST</h5>
-              <span><i class="fa-solid fa-bars"></i></span>
+              <!-- <span><i class="fa-solid fa-bars"></i></span> -->
             </div>
 
             <!-- <div class="search">
@@ -37,7 +38,15 @@
             </div> -->
 
             <ul aria-label="TASKS">
+                
               <li class="active">
+                <span
+                  ><i class="fa-solid fa-arrow-up-wide-short"></i>
+                  <a href="#add-to-do"> Add To-do </a>
+                </span>
+                <span class="">...</span>
+              </li>
+              <li class="">
                 <span
                   ><i class="fa-solid fa-arrow-up-wide-short"></i>
                   <a href="#to-do"> To-do </a>
@@ -47,7 +56,7 @@
               <li>
                 <span>
                   <i class="fa-solid fa-forward-step"></i>
-                  <a href="#all-list"> All List </a>
+                  <a href="#all-list"> All To-do </a>
                 </span>
                 <span class="noOfAllTodo"></span>
               </li>
@@ -81,11 +90,12 @@
             </ul>
           </div>
         </nav>
+ 
         <div class="content">
-          <div class="content-container" id="to-do">
+          <div class="content-container"  id="add-to-your-todo">
             <div class="content-heading">
-              <h5>Today</h5>
-              <span class="noOfUncompletedTodo"></span>
+              <h5>Add Your To-Do List</h5>
+              <!-- <span class="noOfUncompletedTodo"></span> -->
             </div>
             <div class="input">
               <input
@@ -141,7 +151,7 @@
               <h5>Completed List</h5>
               <span class="noOfcompletedTodo"></span>
             </div>
-            <div class="search">
+            <div class="search completed-search">
               <span><i class="fa-solid fa-magnifying-glass"></i></span>
               <input
                 type="search"
@@ -154,12 +164,31 @@
             <ul class="completed-list-container"></ul>
           </div>
 
+          <div class="content-container" id="to-do">
+            <div class="content-heading">
+              <h5>To-dO</h5>
+              <span class="noOfUncompletedTodo"></span>
+            </div>
+            <div class="search to-do-search">
+                <span><i class="fa-solid fa-magnifying-glass"></i></span>
+                <input
+                  type="search"
+                  id="search"
+                  maxlength="30"
+                  placeholder="Search for task"
+                  pattern="^\w+([\w ]*\w)*$"
+                />
+              </div>
+            <ul class="list-container"></ul>
+            </div>
+           
+
           <div class="content-container" id="all-list">
             <div class="content-heading">
-              <h5>All List</h5>
+              <h5>All To-do</h5>
               <span class="noOfAllTodo"></span>
             </div>
-            <div class="search">
+            <div class="search all-search">
               <span><i class="fa-solid fa-magnifying-glass"></i></span>
               <input
                 type="search"
