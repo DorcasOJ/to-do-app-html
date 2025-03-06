@@ -45,7 +45,7 @@ nav {
 
     position: sticky;
     top: 5px;
-    max-width: 220px;
+    width: 25%;
     height: 100vh;
     max-width: 200px;
     box-shadow: 1px 1px 1px #444672b5;
