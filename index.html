@@ -40,32 +40,40 @@
             <ul aria-label="TASKS">
                 
               <li class="active">
+                <a href="#" onclick="scrollToTop()">
                 <span
                   ><i class="fa-solid fa-arrow-up-wide-short"></i>
-                  <a href="#add-to-do"> Add To-do </a>
+                  Add To-do 
                 </span>
                 <span class="">...</span>
+              </a>
               </li>
               <li class="">
-                <span
-                  ><i class="fa-solid fa-arrow-up-wide-short"></i>
-                  <a href="#to-do"> To-do </a>
-                </span>
-                <span class="noOfUncompletedTodo"></span>
+                <a href="#to-do">
+                  <span
+                    ><i class="fa-solid fa-arrow-up-wide-short"></i>
+                    To-do 
+                  </span>
+                  <span class="noOfUncompletedTodo"></span>
+                </a>
               </li>
               <li>
+                <a href="#all-list">
                 <span>
                   <i class="fa-solid fa-forward-step"></i>
-                  <a href="#all-list"> All To-do </a>
+                   All To-do 
                 </span>
                 <span class="noOfAllTodo"></span>
+              </a>
               </li>
               <li>
+                <a href="#completed-list">
                 <span>
                   <i class="fa-solid fa-clipboard-list"></i>
-                  <a href="#completed-list"> Completed </a>
+                   Completed 
                 </span>
                 <span class="noOfcompletedTodo"></span>
+              </a>
               </li>
             </ul>
 
@@ -92,6 +100,9 @@
         </nav>
  
         <div class="content">
+          <div class="content-container show" id="error-display">
+            <p>An error occured</p>
+          </div>
           <div class="content-container"  id="add-to-your-todo">
             <div class="content-heading">
               <h5>Add Your To-Do List</h5>
@@ -166,7 +177,7 @@
 
           <div class="content-container" id="to-do">
             <div class="content-heading">
-              <h5>To-dO</h5>
+              <h5>To-do</h5>
               <span class="noOfUncompletedTodo"></span>
             </div>
             <div class="search to-do-search">

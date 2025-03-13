@@ -1,0 +1,8 @@
+nning 'C:\ProgramData\chocolatey\lib\intellijidea-community\tools\chocolateyInstall.ps1
+
+
+
+- build with your user in mind
+- proper error handling with js
+- remove edit input onclicking save
+- 
